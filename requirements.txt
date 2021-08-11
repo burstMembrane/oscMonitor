@@ -1,0 +1,9 @@
+## The following requirements were added by pip freeze:
+altgraph==0.17
+autopep8==1.5.7
+colorama==0.4.4
+pycodestyle==2.7.0
+pyinstaller==4.5.1
+pyinstaller-hooks-contrib==2021.2
+python-osc==1.7.7
+toml==0.10.2
