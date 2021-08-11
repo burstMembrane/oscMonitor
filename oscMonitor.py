@@ -13,7 +13,7 @@ import sys
 init()
 
 logging.basicConfig(
-    format='[ %(asctime)s.%(msecs)03d ] %(message)s', encoding='utf-8', level=logging.DEBUG, datefmt="%d-%m-%y %H:%M:%S")
+    format='[ %(asctime)s.%(msecs)03d ] %(message)s', level=logging.DEBUG, datefmt="%d-%m-%y %H:%M:%S")
 
 
 def log_osc(address, *args):
