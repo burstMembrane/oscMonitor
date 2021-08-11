@@ -1,6 +1,6 @@
 # OSCMonitor
 
-## A tiny python program to monitor OSC Messages on a giver ip:port combination
+## A tiny python program to monitor OSC Messages on a given ip:port combination
 
 ### Install
 
