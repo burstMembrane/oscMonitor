@@ -17,12 +17,9 @@ logging.basicConfig(
 
 
 def log_osc(address, *args):
-    if len(args) == 1:
-        logging.info(
-            f" [{args[0]}]{Fore.GREEN}{address}: {Fore.RED}{str(args[1]).ljust()} {Fore.BLUE}[{type(args[1]).__name__}] {Style.RESET_ALL}")
-    else:
-        logging.info(
-            f"{Fore.CYAN}[ {':'.join(args[0])} ] {Fore.GREEN}{address}: {Fore.RED}{str(args[1])} {Fore.BLUE}[{type(args[1]).__name__}] {Style.RESET_ALL}")
+    """ Logs osc messages to the default logger """
+    logging.info(
+        f"{Fore.CYAN}[ {':'.join(args[0])} ] {Fore.GREEN}{address} {Fore.RED}{str(args[1])} {Fore.BLUE}[{type(args[1]).__name__}] {Style.RESET_ALL}")
 
 
 if __name__ == "__main__":
