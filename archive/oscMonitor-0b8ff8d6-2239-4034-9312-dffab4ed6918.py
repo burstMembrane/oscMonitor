@@ -13,13 +13,13 @@ import sys
 init()
 
 logging.basicConfig(
-    format='[ %(asctime)s.%(msecs)03d ] %(message)s', encoding='utf-8', level=logging.DEBUG, datefmt="%d-%m-%y %H:%M:%S")
+    format='[ %(asctime)s.%(msecs)03d ] %(message)s', encoding='utf-8', level=logging.DEBUG, datefmt=f"%d-%m-%y %H:%M:%S")
 
 
 def log_osc(address, *args):
 
     logging.info(
-        "{}[ {} ] {}{}: {}{} {}[{}] {}".format(Fore.CYAN, ':'.join(args[0]), Fore.GREEN, address, Fore.RED, str(args[1]), Fore.BLUE, type(args[1]).__name__, Style.RESET_ALL))
+        f"{Fore.CYAN}[ {':'.join(args[0])} ] {Fore.GREEN}{address}: {Fore.RED}{str(args[1])} {Fore.BLUE}[{type(args[1]).__name__}] {Style.RESET_ALL}")
 
 
 if __name__ == "__main__":
@@ -42,5 +42,5 @@ if __name__ == "__main__":
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("{}Quitting...{}".format(Fore.RED, Style.RESET_ALL))
+        print(f"{Fore.RED}Quitting...{Style.RESET_ALL}")
         sys.exit(0)
