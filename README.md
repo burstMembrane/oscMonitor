@@ -11,5 +11,6 @@ Requires Python 3.6 or newer
 then run ```bash pip install -r requirements.txt```
 
 run the script with ```bash python oscMonitor.py```
+
 Inspired by Protokol by hexler
 
