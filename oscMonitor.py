@@ -9,6 +9,7 @@ from pythonosc import dispatcher
 from pythonosc import osc_server
 from colorama import init
 from colorama import Fore, Back, Style
+from os.path import basename
 import sys
 init()
 
@@ -23,9 +24,10 @@ def log_osc(address, *args):
 
 
 if __name__ == "__main__":
+    appname = basename(__file__).split('.')[0]
     parser = argparse.ArgumentParser()
     parser.add_argument("--ip",
-                        default="127.0.0.1", help="Listener IP address")
+                        default="0.0.0.0", help="Listener IP address")
     parser.add_argument("--port",
                         type=int, default=5005, help="OSC Port", required=True)
     parser.add_argument("--address",
@@ -34,13 +36,12 @@ if __name__ == "__main__":
 
     dispatcher = dispatcher.Dispatcher()
     dispatcher.map(args.address, log_osc, args.ip, str(args.port))
-
     server = osc_server.ThreadingOSCUDPServer(
         (args.ip, args.port), dispatcher)
-    logging.info("{} Listening on {}:{} {}".format(Fore.GREEN,
-                                                   server.server_address[0], server.server_address[1], Style.RESET_ALL))
+    logging.info("{}{} Listening on {}:{} {}".format(Fore.GREEN,appname, server.server_address[0], server.server_address[1], Style.RESET_ALL))
+    logging.info("{}Press Ctrl-C to quit. {}".format(Fore.GREEN, Style.RESET_ALL))
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print(f"{Fore.RED}Quitting...{Style.RESET_ALL}")
+        print(f"{Fore.RED} {appname} Quitting...{Style.RESET_ALL}")
         sys.exit(0)

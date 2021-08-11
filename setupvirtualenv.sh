@@ -1,5 +1,5 @@
 # make a virtual environment called "osc" in the current directory
-virtualenv osc --python=/usr/bin/python3
+virtualenv osc 
 
 # install requirements inside virtualenv
 osc/bin/pip install -r requirements.txt
